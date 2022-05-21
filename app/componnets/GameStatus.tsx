@@ -6,7 +6,7 @@ import PlayerStatus from './PlayerStatus';
 
 export default function GameStatus() {
   return (
-    <VStack>
+    <VStack fontSize="18px">
       <PlayerStatus />
       <Board />
     </VStack>

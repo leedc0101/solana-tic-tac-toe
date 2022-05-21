@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { useProgram } from '../contexts/ProgramContext';
 
@@ -11,7 +11,14 @@ export default function PlayerStatus() {
     playerIndex !== null && playerIndex >= 0 && gameStatus === 'active' && playerIndex === (programData.turn + 1) % 2;
 
   if (gameStatus === 'active') {
-    return isPlayerTurn ? <Text>It's your turn</Text> : <Text>It's opponent turn</Text>;
+    return isPlayerTurn ? (
+      <VStack>
+        <Text>It's your turn</Text>
+        <Text>(Your sign: {playerIndex === 0 ? 'X' : 'O'} )</Text>
+      </VStack>
+    ) : (
+      <Text>It's opponent turn</Text>
+    );
   } else if (gameStatus === 'tie') {
     return <Text>It's tie</Text>;
   } else {

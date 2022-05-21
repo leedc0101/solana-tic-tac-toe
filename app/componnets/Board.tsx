@@ -51,17 +51,18 @@ export default function Board() {
   };
 
   return (
-    <Grid gridTemplateColumns="repeat(3, 1fr)">
+    <Grid gridTemplateColumns="repeat(3, 1fr)" bg="#404452" border="4px solid #2c3e50;" borderRadius="5px">
       {programData.board.map((col, i) => {
         return col.map((el, j) => {
           const isTileClickable = el && isPlayerTurn;
           return (
             <GridItem key={(i + 1) * j} onClick={isTileClickable ? () => {} : fallbackFactory(i, j)}>
               <VStack
-                bg={el ? (Object.entries(el)[0][0] == 'x' ? 'red' : 'blue') : 'none'}
-                boxSize="50px"
-                border="1px solid black"
+                bg={el ? (Object.entries(el)[0][0] == 'x' ? '#739E91' : '#737E9E') : 'none'}
+                boxSize="100px"
+                border="4px solid #2c3e50"
                 justify="center"
+                borderRadius="2px"
                 _hover={{ cursor: isTileClickable ? 'not-allowed' : 'pointer' }}
               >
                 <Text fontSize="24px">{el ? Object.entries(el)[0][0] : ' '}</Text>
