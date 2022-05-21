@@ -12,7 +12,7 @@ describe('tic-tac-toe', () => {
 
   it('setup game!', async () => {
     const gameKeypair = anchor.web3.Keypair.generate();
-    console.log(gameKeypair.publicKey.toBase58());
+    console.log(`export const PROGRAM_DATA_ACCOUNT = new PublicKey('${gameKeypair.publicKey.toBase58()}');`);
     const playerOne = new PublicKey('EnXN6aAUvkignLyn5evcKTYCDfXmq2KY3npiUVJhrFC4');
     const playerTwo = new PublicKey('BbeB9wJkKAK98Bf887a2uMZtEfAjTNkSrvQgC9qDuTNG');
     await program.methods

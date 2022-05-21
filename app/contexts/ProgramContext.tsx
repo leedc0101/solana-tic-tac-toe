@@ -4,7 +4,7 @@ import { IdlTypes, TypeDef } from '@project-serum/anchor/dist/cjs/program/namesp
 import { useConnection } from '@solana/wallet-adapter-react';
 import { Keypair, PublicKey, Transaction } from '@solana/web3.js';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { PROGRAM_ACCOUNT, PROGRAM_DATA_ACCOUNT } from '../constant';
+import { PROGRAM_ACCOUNT, PROGRAM_DATA_ACCOUNT } from '../componnets/constant';
 
 export class ExtendedWallet implements Wallet {
   constructor(readonly payer: Keypair) {
@@ -25,14 +25,14 @@ export class ExtendedWallet implements Wallet {
   }
 }
 
-const ProgramContext = createContext({} as any);
-
 export interface ProgramData {
-  board: Array<number>;
+  board: Array<Array<number | null>>;
   players: Array<PublicKey>;
-  state: { active: {} };
+  state: any;
   turn: number;
 }
+
+const ProgramContext = createContext({ program: null, programData: null } as any);
 
 export function ProgramProvider({ children }: any) {
   const [program, setProgram] = useState<Program<Idl>>();
@@ -64,7 +64,7 @@ export function ProgramProvider({ children }: any) {
     return () => {
       connection.removeAccountChangeListener(id);
     };
-  }, []);
+  }, [program]);
 
   const value = {
     program,
