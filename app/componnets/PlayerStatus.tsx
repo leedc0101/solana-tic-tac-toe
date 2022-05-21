@@ -23,9 +23,9 @@ export default function PlayerStatus() {
     return <Text>It's tie</Text>;
   } else {
     return programData.state.won.winner.toBase58() === publicKey?.toBase58() ? (
-      <Text color="green">You won !!!</Text>
+      <Text color="green.200">You won !!!</Text>
     ) : (
-      <Text color="red">You lose !!!</Text>
+      <Text color="red.200">You lose !!!</Text>
     );
   }
 }

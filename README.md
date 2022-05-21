@@ -1,6 +1,6 @@
 # Preview
 
-![](https://velog.velcdn.com/images/leedc0101/post/b11876c0-73b4-473b-9232-3fb27fc8905b/image.gif)
+![](https://user-images.githubusercontent.com/39988655/169661775-1b360385-29f6-406d-a332-9a8c4e8978d1.gif)
 
 <br>
 
