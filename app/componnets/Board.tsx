@@ -1,7 +1,7 @@
 import { Text, Grid, GridItem, Box, VStack, useToast } from '@chakra-ui/react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Transaction } from '@solana/web3.js';
-import { PROGRAM_DATA_ACCOUNT } from './constant';
+import { PROGRAM_DATA_ACCOUNT } from '../constant';
 import { useProgram } from '../contexts/ProgramContext';
 
 export default function Board() {

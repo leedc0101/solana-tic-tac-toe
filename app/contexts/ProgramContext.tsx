@@ -4,7 +4,7 @@ import { IdlTypes, TypeDef } from '@project-serum/anchor/dist/cjs/program/namesp
 import { useConnection } from '@solana/wallet-adapter-react';
 import { Keypair, PublicKey, Transaction } from '@solana/web3.js';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { PROGRAM_ACCOUNT, PROGRAM_DATA_ACCOUNT } from '../componnets/constant';
+import { PROGRAM_ACCOUNT, PROGRAM_DATA_ACCOUNT } from '../constant';
 
 export class ExtendedWallet implements Wallet {
   constructor(readonly payer: Keypair) {
