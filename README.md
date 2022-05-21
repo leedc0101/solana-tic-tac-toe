@@ -1,3 +1,9 @@
+# Preview
+
+![](https://velog.velcdn.com/images/leedc0101/post/b11876c0-73b4-473b-9232-3fb27fc8905b/image.gif)
+
+<br>
+
 # Prerequisites
 
 https://book.anchor-lang.com/getting_started/installation.html
