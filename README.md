@@ -1,11 +1,30 @@
+# Prerequisites
+
+https://book.anchor-lang.com/getting_started/installation.html
+
+<br>
+
 # How to build
+
+Before you start, you have to change the provider of `Anchor.toml` file <br>
+If you want to use other network than devnet, you have to change cluster. <br>
+
+```toml
+[provider]
+# "local" or "testnet"
+cluster = "devnet"
+# Change this if your wallet is in other path
+wallet = "~/.config/solana/id.json"
+```
+
+Then, you can build binary by
 
 ```bash
 anchor build
 solana program deploy <project_root_folder_path>/solana-tic-tac-toe/target/deploy/solana_tic_tac_toe.so
 ```
 
-Make sure you have enough SOL to deploy the program. <br>
+Make sure you have enough SOL to deploy the program. (More than 6sol) <br>
 
 Then Program Id will appear on command line.
 
@@ -45,11 +64,21 @@ Now you have to re-build, deploy and init the program data account by
 anchor test
 ```
 
-When test is passed successfully, replace the under line to `app/constant.ts`
+When test is passed successfully, you will see this line on command line.
+
+```bash
+...
+tic-tac-toe
+export const PROGRAM_DATA_ACCOUNT = new PublicKey('<program data account>');
+✔ setup game!
+...
+```
+
+Replace that line to `app/constant.ts`
 
 ```js
 // app/constant.ts
-export const PROGRAM_DATA_ACCOUNT = new PublicKey('<programId>');
+export const PROGRAM_DATA_ACCOUNT = new PublicKey('<program data account>');
 ```
 
 Finally you have to deploy idl for the program by
@@ -62,10 +91,6 @@ Done! Let's run app.
 
 <br>
 
----
-
-<br>
-
 # How to run app
 
 ```bash
@@ -73,9 +98,10 @@ cd app
 yarn && yarn dev
 ```
 
-<br>
+If you run the app and connect the browser wallet extension, than board will appear.
 
----
+> Note that you have to connect to the address that you set on `test/solana-tic-tac-toe.ts`. <br>
+> If's not, the board will not appear because that address is not a player.
 
 <br>
 
