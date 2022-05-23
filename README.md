@@ -107,7 +107,7 @@ yarn && yarn dev
 If you run the app and connect the browser wallet extension, than board will appear.
 
 > Note that you have to connect to the address that you set on `test/solana-tic-tac-toe.ts`. <br>
-> If's not, the board will not appear because that address is not a player.
+> If it's not, the board will not appear because that address is not a player.
 
 <br>
 
